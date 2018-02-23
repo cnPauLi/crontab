@@ -2,6 +2,7 @@
     "name": "dragonlhp/crontab",
     "description": "php crontab base on pcntl and libev",
     "license": "MIT",
+    "minimum-stability": "dev",
     "keywords": [
         "crontab",
         "php crontab",

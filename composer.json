@@ -1,5 +1,5 @@
 {
-    "name": "cnPauLi/crontab",
+    "name": "dragonlhp/crontab",
     "description": "php crontab base on pcntl and libev",
     "license": "MIT",
     "keywords": [

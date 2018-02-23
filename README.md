@@ -4,68 +4,50 @@ php_crontab
 [![Latest Stable Version](http://img.shields.io/packagist/v/jenner/crontab.svg?style=flat)](https://packagist.org/packages/jenner/crontab)
 [![License](https://img.shields.io/packagist/l/jenner/crontab.svg?style=flat)](https://packagist.org/packages/jenner/crontab)
 
-php crontab base on pcntl and react/event-loop
+»ùÓÚpcntlºÍreact/event-loopµÄ¶¨Ê±ÈÎÎñ¹ÜÀíÆ÷
 
-[ä¸­æ–‡è¯´æ˜](https://github.com/huyanping/php_crontab/blob/master/README.zh.md "ä¸­æ–‡è¯´æ˜")
+[Ó¢ÎÄËµÃ÷](https://github.com/huyanping/php_crontab/blob/master/README.md "Ó¢ÎÄËµÃ÷")
 
-Why use php_crontab?
+ÎªÊ²Ã´Ê¹ÓÃphp_crontab£¿
 ------------
-When we have a handful of crontab tasks, crontab service is enough for us to manage them. 
-If we have many crontab tasks, there will be some problems like:
-+ The crontab tasks are managed in a text file. If there are no comment, it will be 
-hard for fresh man to understand what they are.
-+ If the crontab tasks are distributed in different servers, it will be hard to manage them.
-+ If you want to collect the crontab tasks' logs, it will be not easy. 
-+ Tasks of different users must written in different files.
-Based on the above reasons, we need a crontab manager which can manage crontab tasks together and configure the tasks.
+µ±ÎÒÃÇÓĞÉÙÁ¿µÄ¶¨Ê±ÈÎÎñĞèÒª¹ÜÀíÊ±£¬unixµÄcrontab·şÎñÊ±×ã¹»µÄ¡£Èç¹ûÎÒÃÇÓĞ·Ç³£¶àµÄ¶¨Ê±ÈÎÎñ
+ĞèÒª¹ÜÀíÊ±£¬»ú»áÓĞÒ»Ğ©ÎÊÌâ£¬ÀıÈç£º
++ crontab·şÎñÍ¨¹ıÒ»¸öÎÄ±¾ÎÄ¼ş¹ÜÀí¶¨Ê±ÈÎÎñ£¬Èç¹ûÃ»ÓĞ×¢ÊÍ£¬¶ÔĞÂÈËÀ´ËµÈ¥Àí½âËûÃÇÊÇ±È½ÏÄÑµÄ¡£
++ Èç¹û¶¨Ê±ÈÎÎñ·ÖÉ¢ÔÚĞí¶à»úÆ÷ÉÏ£¬¹ÜÀíËûÃÇÒ²ÊÇ±È½ÏÄÑµÄ¡£
++ Èç¹ûÄãÏëÊÕ¼¯ËûÃÇµÄÈÕÖ¾£¬Í¬Ñù²»»á¼òµ¥¡£
++ ²»Í¬ÓÃ»§µÄ¶¨Ê±ÈÎÎñ·ÖÉ¢ÔÚ²»Í¬µÄÎÄ¼şÖĞ¡£
+»ùÓÚÒÔÉÏ¼¸µãÔ­Òò£¬ÎÒÃÇĞèÒªÒ»¸ö¿ÉÒÔÍ³Ò»¹ÜÀíÅäÖÃµÄ¶¨Ê±ÈÎÎñ¹ÜÀíÆ÷¡£
 
-How to use php_crontab?
+ÈçºÎÊ¹ÓÃphp_crontab£¿
 ---------------
-First `composer require jenner/crontab`.    
-There are two ways to use php_crontab to manage your crontab tasks. 
-You can just write a php script and add it to the crontab config file 
-with the command `crontab -e`. The php script should run every minute. For example `tests/simple.php`  
-Or you can write a php daemon script which will run as a service and will not exit until someone kill it.
-It will check the tasks every minute. For example `tests/daemon.php`
+ÓĞÁ½ÖÖ·½Ê½Ê¹ÓÃphp_crontab¹ÜÀíÄãµÄ¶¨Ê±ÈÎÎñ¡£
+Äã¿ÉÒÔĞ´Ò»¸ö½Å±¾£¬È»ºó°ÑËü¼ÓÈëµ½crontab·şÎñÆ÷ÖĞ£¬Ã¿·ÖÖÓÖ´ĞĞÒ»´Î¡£ÀıÈç`tests/simple`¡£
+»òÕßÄã¿ÉÒÔĞ´Ò»¸öÊØ»¤½ø³Ì½Å±¾£¬Ëü»áÏñÒ»¸ö·şÎñÒ»ÑùÒ»Ö»ÔËĞĞ£¬Ö±µ½ÄãÉ±ËÀËü¡£
+Ëü½«Ã¿·ÖÖÓ¼ì²éÒ»´Î¶¨Ê±ÈÎÎñ¡£ÀıÈç`tests/daemon.php`
 
-Properties
+ÌØĞÔ
 -----------
-+ The crontab tasks can be stored in any way you what. For example, mysql, reids. 
-What's more? You can develop a web application to manage them.
-+ Logs of the crontab tasks can be configured as you want.
-+ The tasks of different users can be managed together.
-+ Multi-Process, every task is a process.
-+ You can set the user and group of a crontab task
-+ STDOUT can be redirected
-+ Based on react/event-loop, it can run as a daemon.
-+ A HTTP server which you can manage the crontab tasks through it.
++ ¶¨Ê±ÈÎÎñ¹ÜÀí¿ÉÒÔ±»´æ´¢ÔÚÈÎºÎµØ·½¡£ÀıÈç£ºmysql¡¢redisµÈ¡£
++ ¶¨Ê±ÈÎÎñµÄÈÕÖ¾¿ÉÒÔ¸ù¾İÄãµÄĞèÒª½øĞĞÅäÖÃ
++ ¶à¸öÓÃ»§µÄ¶¨Ê±ÈÎÎñ¿ÉÒÔÍ³Ò»¹ÜÀí
++ ¶à½ø³Ì£¬Ã¿¸öÈÎÎñÒ»¸ö½ø³Ì
++ Äã¿ÉÒÔÎªÃ¿¸öÈÎÎñÉèÖÃÓÃ»§ºÍÓÃ»§×é
++ ±ê×¼Êä³ö¿ÉÒÔ½øĞĞÖØ¶¨Ïò
++ »ùÓÚreact/event-loop£¬Ëü¿ÉÒÔ×÷ÎªÒ»¸öÊØ»¤½ø³ÌÔËĞĞ
++ Ò»¸öHTTP·şÎñÆ÷£¬Äã¿ÉÒÔÍ¨¹ıËü¹ÜÀí¶¨Ê±ÈÎÎñ
 
-Output Config
------------
-You can redirect the output(stdout and stderr) to anywhere you what, like:
-+ `file:///path/to/file` 
-+ `unix:///path/to/sock`
-+ `tcp://host:port`
-+ `udp://host:port`
-+ `redis://host:port/queue_key`
-+ `http://host:port/path`
-+ `custom://namespace\\class_name?params`  
-  
-Note that the custom class must be an instance of `\Monolog\Handler\HandlerInterface`, 
-and you can pass params to your custom class's `__construct` by query string.
-
-HTTP interfaces
+HTTP ½Ó¿Ú
 -------------
-HTTP METHOD: `GET`  
-+ `add` add new task to crontab server
-+ `get_by_name` get task by name
-+ `remove_by_name` remove task by name
-+ `clear` clear all task
-+ `get` get all tasks
-+ `start` start crontab loop
-+ `stop` stop crontab loop
+HTTP ·½·¨: `GET`  
++ `add` Ôö¼ÓÈÎÎñ
++ `get_by_name` ¸ù¾İÈÎÎñÃû³Æ»ñÈ¡ÈÎÎñ
++ `remove_by_name` ¸ù¾İÈÎÎñÃû³ÆÉ¾³ıÈÎÎñ
++ `clear` É¾³ıËùÓĞÈÎÎñ
++ `get` »ñÈ¡ËùÓĞÈÎÎñ
++ `start` ¿ªÊ¼¼ì²â¶¨Ê±ÈÎÎñ
++ `stop` Í£Ö¹¼ì²â¶¨Ê±ÈÎÎñ
 
-Examples:
+Ê¾Àı:
 ```shell
 http://host:port/add?name=name&cmd=cmd&time=time&out=out&user=user&group=group&comment=comment
 http://host:port/get_by_name?name=name
@@ -76,14 +58,8 @@ http://host:port/start
 http://host:port/stop
 ```
 
-TODO
-------------------
-+ add log handler interface
-+ add http log handler, socket log handler, file handler and so on.
-+ separate stdout and stderr. use different handlers
 
-
-**run based on crontab service**
+**»ùÓÚcrontab·şÎñÔËĞĞ**
 ```shell
 * * * * * php demo.php
 ```
@@ -93,8 +69,7 @@ $missions = [
     [
         'name' => 'ls',
         'cmd' => "ls -al",
-        'out' => 'file:///tmp/php_crontab.log',
-        'err' => 'file:///tmp/php_crontab.log',
+        'out' => '/tmp/php_crontab.log',
         'time' => '* * * * *',
         'user' => 'www',
         'group' => 'www'
@@ -102,8 +77,7 @@ $missions = [
     [
         'name' => 'hostname',
         'cmd' => "hostname",
-        'out' => 'unix:///tmp/php_crontab.sock',
-        'err' => 'unix:///tmp/php_crontab.sock',
+        'out' => '/tmp/php_crontab.log',
         'time' => '* * * * *',
     ],
 ];
@@ -116,7 +90,7 @@ foreach($missions as $mission){
 $crontab_server = new \Jenner\Crontab\Crontab(null, $tasks);
 $crontab_server->start(time());
 ```
-**run as a daemon**
+**×÷ÎªÒ»¸öÊØ»¤½ø³ÌÔËĞĞ**
 
 it will check the task configs every minute.
 ```php
@@ -124,16 +98,16 @@ $missions = [
     [
         'name' => 'ls',
         'cmd' => "ls -al",
-        'out' => 'file:///tmp/php_crontab.log',
-        'err' => 'file:///tmp/php_crontab.log',
+        'out' => '/tmp/php_crontab.log',
         'time' => '* * * * *',
+        'user' => 'www',
+        'group' => 'www'
     ],
     [
         'name' => 'hostname',
         'cmd' => "hostname",
-        'out' => 'unix:///tmp/php_crontab.sock',
-        'err' => 'unix:///tmp/php_crontab.sock',
-        'time' => '* * * * *',
+        'out' => '/tmp/php_crontab.log',
+        'time' =>  '* * * * *',
     ],
 ];
 
@@ -141,21 +115,19 @@ $daemon = new \Jenner\Crontab\Daemon($missions);
 $daemon->start();
 ```
 
-**run as a daemon and start the http server**
+**×÷ÎªÊØ»¤½ø³ÌÔËĞĞÍ¬Ê±Æô¶¯Ò»¸öhttp server**
 ```php
 $missions = [
     [
         'name' => 'ls',
         'cmd' => "ls -al",
-        'out' => 'file:///tmp/php_crontab.log',
-        'err' => 'file:///tmp/php_crontab.log',
+        'out' => '/tmp/php_crontab.log',
         'time' => '* * * * *',
     ],
     [
         'name' => 'hostname',
         'cmd' => "hostname",
-        'out' => 'unix:///tmp/php_crontab.sock',
-        'err' => 'unix:///tmp/php_crontab.sock',
+        'out' => '/tmp/php_crontab.log',
         'time' => '* * * * *',
     ],
 ];
@@ -170,7 +142,7 @@ curl http://127.0.0.1:6364/remove_by_name?name=hostname
 curl http://127.0.0.1:6364/get
 ```
 
-**run the script**
+**Æô¶¯½Å±¾**
 ```shell
 [root@jenner php_crontab]# ./bin/php_crontab 
 php_crontab help:
@@ -181,7 +153,7 @@ php_crontab help:
 [root@jenner php_crontab]#nohup ./bin/php_crontab -c xxoo.php -p 8080 -f /var/php_crontab.pid -l /var/logs/php_crontab.log >/dev/null & 
 ```
 
-[blog:www.huyanping.cn](http://www.huyanping.cn/ "ç¨‹åºçŒ¿å§‹ç»ˆä¸å¤Ÿ")
+[blog:www.huyanping.cn](http://www.huyanping.cn/ "³ÌĞòÔ³Ê¼ÖÕ²»¹»")
 
 
 

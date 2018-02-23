@@ -8,12 +8,11 @@
         "php crontab",
         "crontab manager"
     ],
-    "version": "v1.5.2",
+    "version": "v1.5.3",
     "authors": [
         {
-            "name": "Jenner",
-            "email": "hypxm@qq.com",
-            "homepage" : "http://www.huyanping.cn"
+            "name": "Pauli",
+            "email": "dragon_lhp@qq.com"
         }
     ],
     "require": {
@@ -26,7 +25,8 @@
     },
     "require-dev": {
         "guzzle/guzzle": "v3.9.3",
-        "ext-redis": "*"
+        "ext-redis": "*",
+        "dragonlhp/crontab": "dev-master"
     },
     "suggest": {
         "ext-libevent": ">=0.1.0",
@@ -37,7 +37,7 @@
     },
     "autoload": {
         "psr-0": {
-            "dragonlhp\\Crontab": "src/"
+            "dragonlhp\\crontab": "src/"
         }
     }
 }

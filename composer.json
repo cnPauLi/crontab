@@ -1,0 +1,13 @@
+{
+    "name": "mybook-lhp/crontab",
+    "authors": [
+        {
+            "name": "MyBook",
+            "email": "mybook-lhp@MyBookdeMBP.lan"
+        }
+    ],
+    "require": {
+        "jenner/crontab": "^1.5",
+        "monolog/monolog": "^1.23"
+    }
+}

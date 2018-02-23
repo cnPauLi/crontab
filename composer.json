@@ -8,7 +8,7 @@
         "php crontab",
         "crontab manager"
     ],
-    "version": "v1.5.5",
+    "version": "v1.6",
     "authors": [
         {
             "name": "Pauli",
@@ -25,7 +25,8 @@
     },
     "require-dev": {
         "guzzle/guzzle": "v3.9.3",
-        "ext-redis": "*"
+        "ext-redis": "*",
+        "dragonlhp/crontab": "v1.5.3"
     },
     "suggest": {
         "ext-libevent": ">=0.1.0",

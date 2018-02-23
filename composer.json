@@ -1,13 +1,42 @@
 {
-    "name": "mybook-lhp/crontab",
+    "name": "cnPauLi/crontab",
+    "description": "php crontab base on pcntl and libev",
+    "license": "MIT",
+    "keywords": [
+        "crontab",
+        "php crontab",
+        "crontab manager by Jenner/crontab"
+    ],
+    "version": "v1.5.2",
     "authors": [
         {
-            "name": "MyBook",
-            "email": "mybook-lhp@MyBookdeMBP.lan"
+            "name": "Jenner",
+            "email": "hypxm@qq.com",
+            "homepage" : "http://www.huyanping.cn"
         }
     ],
     "require": {
-        "jenner/crontab": "^1.5",
-        "monolog/monolog": "^1.23"
+        "php": ">=5.3.0",
+        "ext-posix": "*",
+        "jenner/simple_fork": "0.5",
+        "monolog/monolog": "^1.17.1",
+        "react/http": "v0.4.1",
+        "symfony/process": "v2.7.5"
+    },
+    "require-dev": {
+        "guzzle/guzzle": "v3.9.3",
+        "ext-redis": "*"
+    },
+    "suggest": {
+        "ext-libevent": ">=0.1.0",
+        "ext-event": "~1.0",
+        "ext-libev": "*",
+        "guzzle/guzzle": "v3.9.3",
+        "ext-redis": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Jenner\\Crontab": "src/"
+        }
     }
 }

@@ -8,7 +8,7 @@
         "php crontab",
         "crontab manager"
     ],
-    "version": "1.6.2",
+    "version": "1.6.3",
     "authors": [
         {
             "name": "Pauli",
@@ -18,10 +18,10 @@
     "require": {
         "php": ">=5.6.0",
         "ext-posix": "*",
-        "jenner/simple_fork": "0.5",
+        "jenner/simple_fork": "^0.5",
         "monolog/monolog": "^1.17.1",
-        "react/http": "v0.4.1",
-        "symfony/process": "v2.7.5"
+        "react/http": "^0.4.1",
+        "symfony/process": "^2.7.5"
     },
     "require-dev": {
         "guzzle/guzzle": "v3.9.3",
